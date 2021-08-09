@@ -1,14 +1,39 @@
 package com.dematic.testtask.bookstorage.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="books")
 public class Book {
-		
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="book_name")
 	private String name;
+	
+	@Column(name="author")
 	private String author;
+	
+	@Column(name="barcode")
 	private long barcode;
+	
+	@Column(name="quantity")
 	private int quantity;
+	
+	@Column(name="price")
 	private double price;
+	
+	@Column(name="year")
 	private int year;
+	
+	@Column(name="sc_index")
 	private int scIndex;
 	
 	public Book(){}

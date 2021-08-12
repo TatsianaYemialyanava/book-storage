@@ -14,6 +14,7 @@ import com.dematic.testtask.bookstorage.entity.Book;
 
 @Service
 public class BookServiceImpl implements BookService {
+	public final static int ANTIQ_COEF = 10;
 	
 	@Autowired
 	private BookRepository bookRepository;
@@ -78,9 +79,7 @@ public class BookServiceImpl implements BookService {
 		Book book = bookRepository.findBookByBarcode(barcode);
 		if(book == null) {
 			throw new BookNotFoundException();
-		}
-		
-		final int ANTIQ_COEF = 10;
+		}		
 		Double result = null;
 		LocalDateTime date = LocalDateTime.now();
 		

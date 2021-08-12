@@ -33,7 +33,7 @@ public class Book {
 	@Column(name="year")
 	private Integer year;
 
-	@Column(name="sc_index")
+	@Column(name="sc_index")  
 	private Integer scIndex;
 
 	public Book(){}

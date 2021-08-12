@@ -18,6 +18,14 @@
 		<java.version>11</java.version>
 	</properties>
 	
+	<distributionManagement>
+   		<repository>
+     		<id>github</id>
+     		<name>GitHub TatsianaYemialyanava Apache Maven Packages</name>
+    		 <url>https://maven.pkg.github.com/TatsianaYemialyanava/book-storage</url>
+  		 </repository>
+	</distributionManagement>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

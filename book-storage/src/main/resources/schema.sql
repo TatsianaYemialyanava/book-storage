@@ -8,5 +8,5 @@ CREATE TABLE books (
   quantity INT NULL,
   price DOUBLE NULL,
   year INT NULL,
-  sc_index INT NULL DEFAULT -1
+  sc_index INT NULL
 );

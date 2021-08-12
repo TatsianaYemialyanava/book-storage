@@ -13,47 +13,36 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	private int id;
-	
+	private Integer id;
+
 	@Column(name="book_name")
 	private String name;
-	
+
 	@Column(name="author")
 	private String author;
-	
+
 	@Column(name="barcode")
-	private long barcode;
-	
+	private Long barcode;
+
 	@Column(name="quantity")
-	private int quantity;
-	
+	private Integer quantity;
+
 	@Column(name="price")
-	private double price;
-	
+	private Double price;
+
 	@Column(name="year")
-	private int year;
-	
+	private Integer year;
+
 	@Column(name="sc_index")
-	private int scIndex;
-	
+	private Integer scIndex;
+
 	public Book(){}
 
-	/*public Book(int id, String name, String author, long barcode, int quantity, double price, int year, int scIndex) {
-		this.id = id;
-		this.name = name;
-		this.author = author;
-		this.barcode = barcode;
-		this.quantity = quantity;
-		this.price = price;
-		this.year = year;
-		this.scIndex = scIndex;
-	}*/
-
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -73,43 +62,43 @@ public class Book {
 		this.author = author;
 	}
 
-	public long getBarcode() {
+	public Long getBarcode() {
 		return barcode;
 	}
 
-	public void setBarcode(long barcode) {
+	public void setBarcode(Long barcode) {
 		this.barcode = barcode;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
-	public int getYear() {
+	public Integer getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(Integer year) {
 		this.year = year;
 	}
 
-	public int getScIndex() {
+	public Integer getScIndex() {
 		return scIndex;
 	}
 
-	public void setScIndex(int scIndex) {
+	public void setScIndex(Integer scIndex) {
 		this.scIndex = scIndex;
 	}
 
@@ -118,11 +107,9 @@ public class Book {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
-		result = prime * result + (int) (barcode ^ (barcode >>> 32));
-		result = prime * result + id;
+		result = prime * result + ((barcode == null) ? 0 : barcode.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + scIndex;
-		result = prime * result + year;
 		return result;
 	}
 
@@ -141,29 +128,31 @@ public class Book {
 		if (author == null) {
 			if (other.author != null) {
 				return false;
-			}
+			}	
 		} else if (!author.equals(other.author)) {
 			return false;
 		}
-		if (barcode != other.barcode) {
+		if (barcode == null) {
+			if (other.barcode != null) {
+				return false;
+			}
+		} else if (!barcode.equals(other.barcode)) {
 			return false;
-		}
-		if (id != other.id) {
+		}	
+		if (id == null) {
+			if (other.id != null) {
+				return false;
+			}	
+		} else if (!id.equals(other.id)) {
 			return false;
-		}
+		}	
 		if (name == null) {
 			if (other.name != null) {
 				return false;
 			}
 		} else if (!name.equals(other.name)) {
 			return false;
-		}
-		if (scIndex != other.scIndex) {
-			return false;
-		}
-		if (year != other.year) {
-			return false;
-		}
+		}	
 		return true;
 	}
 
@@ -173,3 +162,4 @@ public class Book {
 				+ ", price=" + price + "]";
 	}
 }
+
